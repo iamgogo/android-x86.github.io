@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Android-x86 - Porting Android to x86</title>
+  <title>Download | Android-x86</title>
   <link rel="stylesheet" type="text/css" href="master.css" title="default">
   <link rel="alternate stylesheet" type="text/css" href="dark.css" title="alternate">
   <script type="text/javascript" src="styleswitcher.js"></script>
@@ -24,26 +24,40 @@
 
       <!--Style Switcher-->
       <div class=themebtn>
-        <button class="button" onclick="setActiveStyleSheet('default'); return false;"><img src="light_theme.png" height="20px" width"20px" title='Toggle Theme'/> </button>
-        <button class="button" onclick="setActiveStyleSheet('alternate'); return false;" ><img src="dark_theme.png" height="20px" width"20px" title="Toggle Theme"/></button>
+        <button class="button" onclick="setActiveStyleSheet('default'); return false;"><img src="light_theme.png" width="20px" title="Toggle Theme"/></button>
+        <button class="button" onclick="setActiveStyleSheet('alternate'); return false;" ><img src="dark_theme.png" width="20px" title="Toggle Theme"/></button>
       </div>
 
       <br>
       <h2>Download</h2>
 
-      <p>Choose your mirror :</p>
+      <p>Choose one mirror:</p>
       <ul>
-        <li><br><a href="https://osdn.net/projects/android-x86/releases/p1499"><img src="OSDN_logo.png" width="350" height="125"></a></li>
-        <li><br><a href="https://www.fosshub.com/Android-x86.html"><img src="FOSSHUB_logo.png" width="350" height="120"></a></li>
+      <script>
+        function add_mirror(url, img) {
+          document.write('<li><br><a href="' + url + '"><img src="' + img + '" width="350"></a></li>');
+        }
+        mirrors = [
+            [ "https://www.fosshub.com/Android-x86.html", "FOSSHUB_logo.png" ],
+            [ "https://osdn.net/projects/android-x86/releases", "OSDN_logo.png" ],
+        ];
+        for (var i = mirrors.length - 1; i >= 0 ; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = mirrors[i];
+          mirrors[i] = mirrors[j];
+          mirrors[j] = temp;
+          add_mirror(mirrors[i][0], mirrors[i][1]);
+        }
+      </script>
       </ul>
       <br>
       <br>
+      <br>
       <!--End of Content-->
-      <div id="f-padding"></div>
-    </section>
-    <section class="bg">
-      <div class="bg"></div>
-      <div class="clearfix"></div>
+
+      <h6>Advertisement</h6>
+      <script data-cfasync="false" type="text/javascript" src="//www.increaserev.com/ads/728x90below_res.js"></script>
+      <div id="rn_ad_native_t7491"></div><script>showRunative("rn_ad_native_t7491");</script>
     </section>
 
     <div w3-include-html="footer.html"></div>
@@ -59,6 +73,12 @@
     $("nav").toggleClass("open");
     $(".wrapper").toggleClass("open");
     $(this).toggleClass("open");
+  });
+  $("img").load(function() {
+    var w = $(this).parent().parent()[0].clientWidth;
+    if (w < this.width) {
+      this.width = w;
+    }
   });
   </script>
 

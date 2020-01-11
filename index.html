@@ -5,10 +5,12 @@
   <title>Android-x86 - Porting Android to x86</title>
   <link rel="stylesheet" type="text/css" href="master.css" title="default">
   <link rel="alternate stylesheet" type="text/css" href="dark.css" title="alternate">
+  <link rel="stylesheet" href="lightbox2/css/lightbox.min.css">
   <script type="text/javascript" src="styleswitcher.js"></script>
   <link rel="icon" type="image/png" href="mobile.png">
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Android-x86 is an Android Open Source Project licensed under Apache Public License 2.0. Some components are licensed under GNU General Public License (GPL) 2.0 or later. " />
+  <meta name="theme-color" content="#2e56cc">
 </head>
 
 <body>
@@ -27,75 +29,133 @@
         <button class="button" onclick="setActiveStyleSheet('alternate'); return false;" ><img src="dark_theme.png" height="20px" width"20px" title="Toggle Theme"/></button>
       </div>
 
-      <p>This is a project to port <a href="http://source.android.com/">Android open source project</a> to x86 platform, formerly known as "<a href="http://code.google.com/p/patch-hosting-for-android-x86-support/">patch hosting for android x86 support</a>".
+      <a href="donate.html"><img class="coffee" border="0" src="Android-x86_Coffee_Banner.jpg"></img></a>
+      <p>This is a project to port <a href="https://source.android.com">Android open source project</a> to x86 platform, formerly known as "<a href="https://code.google.com/archive/p/patch-hosting-for-android-x86-support/">patch hosting for android x86 support</a>".
         The original plan is to host different patches for android x86 support from open source community. A few months after we created the project, we found out that we could do much more than just hosting patches. So we decide to create our code base
         to provide support on different x86 platforms, and set up a git server to host it.</p>
 
         <p>This is an open source project licensed under Apache Public License 2.0. Some components are licensed under GNU General Public License (GPL) 2.0 or later. If you think we did something great, consider <a href="donate.html">making a donation</a>.</p>
 
-        <button class="download-btn" type="button"><a id="download-button-home" href="download.html"><span>Download</span></a></button>
+        <button class="download-btn" type="button" onClick="location.href='download.html'"><a id="download-button-home" href="download.html"><span>Download</span></a></button>
 
         <h2>What's New</h2>
-              <ul>
-                <li>2019-05-02: Android-x86 website is shifted from the <a href="https://old.android-x86.org">legacy site</a> to <a href="https://github.com/android-x86/android-x86.github.io">Github Pages</a> here.</li>
-                <li>2019-01-15: <a href="releases/releasenote-8-1-r1.html">The Android-x86 8.1-r1 released</a> (the first stable release of oreo-x86).</li>
-                <li>2018-10-18: <a href="releases/releasenote-8-1-rc2.html">The Android-x86 8.1-rc2 released</a> (the second release candidate of oreo-x86).</li>
-                <li>2018-09-28: Mauro Rossi talks about <a href="https://www.x.org/wiki/Events/XDC2018/Talks/#mauro">Android-x86 status update and graphics stack evolution</a> in <a href="https://www.x.org/wiki/Events/XDC2018/">XDC2018</a>.</li>
-                <li>2018-06-18: <a href="releases/releasenote-8-1-rc1.html">The Android-x86 8.1-rc1 released</a> (the first release candidate of oreo-x86).</li>
-                <li><a href="changelog.html">More...</a>
-                  <br>
-                  <br>
-              </ul>
+          <ul>
+            <li>2019-11-20: The <a href="source.html">q-x86 branch is ready</a> for developers.</li>
+            <li>2019-11-15: <a href="releases/releasenote-9-0-rc1.html">The Android-x86 9.0-rc1 released</a> (the first release candidate of pie-x86).</li>
+            <li>2019-10-30: <a href="releases/releasenote-8-1-r3.html">The Android-x86 8.1-r3 released</a> (the third stable release of oreo-x86).</li>
+            <li>2019-10-23: <a href="releases/releasenote-cm-x86-14-1-r3.html">The cm-x86-14.1-r3 is released</a> (the third stable release of cm-14.1-x86).</li>
+            <li>2019-10-18: <a href="releases/releasenote-7-1-r3.html">The Android-x86 7.1-r3 released</a> (the third stable release of nougat-x86).</li>
+            <li><a href="changelog.html">More...</a>
+          </ul>
+        <br><br>
 
+        <script data-cfasync="false" type="text/javascript" src="//www.increaserev.com/ads/728x90below_res.js"></script>
         <h2 class="subheading">Project Goal</h2>
-        <p>To provide complete solution for Android on Eee PC platforms first and then to provide solutions for common x86 platforms as well.</p>
+        <p>To provide a complete solution for Android on common x86 platforms. You may think Android-x86 as an Android <a href="https://wikipedia.org/wiki/Board_support_package">BSP</a> of generic x86 platforms.</p>
 
-        <div w3-include-html="sponsors.html"></div>
+        <h2 class="subheading">Screenshots</h2>
+        <div><script>
+          function add_screenshot(img, title) {
+            document.write('<div class="responsive gallery desc"><a class="image-link" href="screenshots/' + img + '" data-lightbox="ss" data-title="' + title +
+                           '"><img class="screenshot" src="screenshots/thumb/' + img + '"/></a> ' + title + '</div>');
+          }
+          screenshots = [
+            [ "SetupWizard-lang.jpg", "Setup wizard - Choose language" ],
+            [ "SetupWizard-wifi.jpg", "Setup wizard - Connect to wifi" ],
+            [ "SetupWizard-signin.jpg", "Setup wizard - Sign in" ],
+            [ "SetupWizard-services.jpg", "Setup wizard - Enable Google Services" ],
+            [ "Select-home.jpg", "Select a Home app" ],
+            [ "Launcher3.jpg", "Launcher3" ],
+            [ "Apps-list.jpg", "Apps List" ],
+            [ "Recent-task-list.jpg", "Recent Task List" ],
+            [ "QuickSettings.jpg", "Quick Settings" ],
+            [ "Notifications.jpg", "Notifications" ],
+            [ "Widgets.jpg", "Widgets" ],
+            [ "Multi-desktop.jpg", "Multi-desktop" ],
+            [ "Settings.jpg", "Settings" ],
+            [ "Settings-About.jpg", "Settings - About" ],
+            [ "Calculator.jpg", "Calculator" ],
+            [ "Calendar.jpg", "Calendar" ],
+            [ "Camera.jpg", "Camera" ],
+            [ "Clock.jpg", "Clock" ],
+            [ "Contacts.jpg", "Contacts" ],
+            [ "DevTools.jpg", "Dev Tools" ],
+            [ "FileManager.jpg", "File Manager" ],
+            [ "Gallery.jpg", "Gallery" ],
+            [ "Music.jpg", "Music" ],
+            [ "Terminal.jpg", "Terminal Emulator" ],
+            [ "Taskbar.jpg", "Taskbar launcher" ],
+            [ "Multi-window.jpg", "Run apps in multi-window mode" ],
+            [ "Split-window.jpg", "Run apps in split-window mode" ],
+            [ "Switch-to-window-mode.jpg", "Switch an app to window mode" ],
+            [ "PlayStore.jpg", "Play Store" ],
+            [ "Installing-VLC.jpg", "Installing VLC from Play Store" ],
+            [ "Search-apps.jpg", "Search apps in Play Store" ],
+            [ "Installed-apps.jpg", "Installed apps list" ],
+          ];
+          for (var i = screenshots.length - 1; i > screenshots.length - 5; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = screenshots[i];
+            screenshots[i] = screenshots[j];
+            screenshots[j] = temp;
+            add_screenshot(screenshots[i][0], screenshots[i][1]);
+          }
+        </script></div>
 
-          <h2 class="subheading">Screenshots</h2>
+	<p>&nbsp;</p><p><br>More screenshots can be found <a href="screenshots.html">here</a>.</p>
 
-          <div class="responsive">
-            <div class="gallery">
-              <a target="_blank" href="http://lh3.ggpht.com/_bThy5DH7GQI/SqeUBUE-v4I/AAAAAAAAAVo/iqvAI6sjWU4/s288/Slashdot.org.png.jpg">
-                <img src="http://lh3.ggpht.com/_bThy5DH7GQI/SqeUBUE-v4I/AAAAAAAAAVo/iqvAI6sjWU4/s288/Slashdot.org.png.jpg" alt="Surf the Internet" width="300" height="200">
-              </a>
-              <div class="desc">Surf the Internet</div>
-            </div>
-          </div>
+        <h2 class="subheading">Sponsors</h2>
+        <ul>
+          <li>Sponsored by <a href="https://casinopilotti.com">Netticasinot</a>.</li>
+          <li>Sponsored by <a href="https://parhaatuudetkasinot.com">Uudet suomenkieliset nettikasinot</a>.</li>
+          <li>Sponsored by <a href="https://mrcasinova.com/fi">MrCasinova</a>.</li>
+          <li>Supported by <a href="https://nonstopcasino.org/not-gamstop-casinos" target="_blank">W.Terry from NonStopCasino.org</a>.</li>
+          <li>Supported by <a href="https://casinosnotongamstop.com">Casinosnotongamstop.com</a>.</li>
+          <li><a href="https://xn--eckle6c9b3a1czd1iydc.jp">トップオンラインカジノ.jp</a> is the best Japanese casinos comparison tool.</li>
+          <li>Sponsored by <a href="https://kingcasinobonus.co.uk/mobile-casino-bonuses/">KingCasinoBonus.co.uk – mobile casino reviewer</a>.</li>
+          <li>Supported by <a href="https://www.bonus.ca/fr">BonusFinder Canada</a>.</li>
+          <li>Sponsored by <a href="https://gamblerspro.com/best-slot-sites">Gamblerspro.com - The Best Slot Sites Online</a>.</li>
+          <li>Sponsored by <a href="https://www.casinotop.com/fi/">Nettikasinot CasinoTop</a>.</li>
+          <li>Sponsored by <a href="https://www.casinotopp.net/sv/">Casino online CasinoTopp</a>.</li>
+          <li>Sponsored by <a href="https://www.nowloan.co.uk">NowLoan</a>.</li>
+          <li>Sponsored by <a href="https://www.norgescasino.com">Norges Online Casino</a>.</li>
+          <li>Sponsored by <a href="https://mycasinobonuses.co.uk/top-20-no-deposit-bonuses">MyCasinoBonuses.co.uk - Extensive List of the top 20 No Deposit Casinos</a>!</li>
+          <li>Sponsored by Betpal.com - best <a href="https://www.betpal.com/casino/">casino online</a> guide available for UK players.</li>
+          <li>Los mejores vídeos xxx gratis <a href="https://www.bingoporno.com">Bingo Porno</a>.</li>
+          <li>Sponsored by Casino-professor.com, best casino reviews, guides and <a href="https://casino-professor.com/en/free-spins">Free Spins</a>.</li>
+          <li>Sponsored by <a href="https://9appsdownloads.net">9apps</a>.</li>
+          <li>Sponsored by <a href="https://www.thecasinodb.com/new-casino-sites">TheCasinoDB New Casino Sites</a>.</li>
+          <!--<li>Sponsored by <a href="https://www.juicybonuses.com">juicybonuses.com</a>, the best way to find casino bonus.</li>-->
+          <li><a href="https://www.radaeepdf.com">RadaeePDF.com</a> is using an array of android-x86 based devices to do extensive tests on PDF and DOCX rendering and editing engine running on <a href="https://www.radaeepdf.com/download/download-android">Android</a>, <a href="https://www.radaeepdf.com/download/radaeepdf-server">Linux</a> and also <a href="https://www.radaeepdf.com/download/download-ios">iOS</a> and <a href="https://www.radaeepdf.com/download/download-winrt">Windows UWP</a>.</li>
+          <li><a href="https://www.gear.it/mr">GEAR.it</a> is using Android-x86 to provide a live and bootable USB device with MobileReplica® for Android. MobileReplica® is the best tool to distribute digital version of electronic manuals.</li>
+          <li>Sponsored by <a href="https://www.onlinecasino24.org/">Onlinecasino24.org</a>.</li>
+          <li>Sponsored by <a href="https://allvideoslots.com/">Allvideoslots.com</a>.</li>
+          <!--<li>Thanks to <a href="https://www.newcasinosonline.co">www.newcasinosonline.co</a> for contributing for our website.</li>-->
+          <!--<li>Sponsored by <a href="https://www.gowin.co.uk/paypal-casino/">GoWin - PayPal Casinos</a> and Presented by <a href="https://slotsify.com/">Slotsify - Alla Casinon i Sverige</a>.</li>-->
+          <li>Thanks to <a href="https://www.casinobonuses.com/">casinobonuses.com</a> - The best way to compare casino bonuses.</li>
+          <li>A big thank you to <a href="https://readyslotsgo.co.uk/">Ready Slots Go</a> for contributing to this page.</li>
+          <!--<li>Sponsored by <a href="https://terrariumtv.co/">Terrarium tv</a>.</li>-->
+          <!--<li>Sponsored by <a href="https://www.slotsadviser.com/">SlotsAdviser.com</a> - the #1 <a href="https://www.slotsadviser.com/">online slots</a> portal in the UK and an Android <a href="https://www.slotsadviser.com/mobile/">mobile casinos</a> fan.</li>-->
+          <!--<li>Thanks to Coffee Corner for buying us a <a href="https://coffeecorner.com/best-of/coffee-makers/">drip coffee maker</a>.</li>-->
+          <!--<li>Sponsored by the best bookmaker in the world, <a href="https://extratips.com/bet365-review-and-bonuses/" title="bet365 bonuses">bet365</a> and by newfreespinscasino.com which offers an unique <a href="https://newfreespinscasino.com/bitcoin-casino/">bitcoin casino</a> list.</li>-->
+          <li>Sponsored by <a href="https://www.stickeryou.com/">StickerYou.com</a>, manufacturers of quality <a href="https://www.stickeryou.com/products/custom-stickers/335/">Custom Stickers</a> and <a href="https://www.stickeryou.com/products/labels/654/">Custom Labels</a>.</li>
+          <li>Sponsored by <a href="https://crumbles.co/showbox-apk-download/">Showbox</a> and <a href="https://babasupport.org/">Customer Service Number</a></li>
+          <li><a href="http://www.acuitytraining.co.uk">Acuity Training</a> for various technical advice.</li>
+          <li>Sponsored by <a href="https://9appsapk.net.in">9APPS APK DOWNLOAD</a> &amp; <a href="https://droidmoda.com">Android Apps Free Download</a>.</li>
+          <!--<li>Sponsored by <a href="http://kikonline.tips/tutuapp/">TutuApp</a>.</li>-->
+          <li>Sponsored by <a href="https://luckypatcherappdownload.com/">Lucky Patcher Apk</a> &amp; <a href="http://freedomapkdld.com/">Freedom Apk</a>.</li>
+          <li>Sponsored by <a href="https://luckypatcher.playstoredownloads.org">Lucky Patcher</a> and <a href="http://windowstechsupport.org">Microsoft Support</a>.</li>
+          <!--<li>Supported by <a href="http://www.showboxappz.com/">Official ShowBox Website</a>, <a href="http://showboxappdownload.co/showbox-apk/">ShowBox APK</a> and <a href="http://www.bloomtimes.com/facetime-for-pc-windows-and-mac/">FaceTime for PC</a>.</li>-->
+          <!--<li>Sponsored by <a href="https://showboxa.com/showbox-app/">ShowBox for Android</a> &amp; <a href="https://showboxa.com/showbox-apk/">ShowBox APK file</a>.</li>-->
+          <li>Sebastian Albrecht from <a href="http://yourvancouverrealestate.ca/vancouver-special/">Vancouver special</a>, <a href="http://foliovision.com/2013/02/lorne-marr">Lorne Marr</a>, <a href="http://ellidavis.com/">Toronto Realtor</a> Elli Davis, and Chantal Marr from <a href="http://nomedicallifeinsurance.ca/">No medical life insurance</a> for their support.</li>
+</ul>
+        </ul>
+        <br>
 
-
-          <div class="responsive">
-            <div class="gallery">
-              <a target="_blank" href="http://lh5.ggpht.com/_bThy5DH7GQI/Sq4gDP9OX3I/AAAAAAAAAak/jVA-IXGaUpw/s288/PlayHarryPotter.png.jpg">
-                <img src="http://lh5.ggpht.com/_bThy5DH7GQI/Sq4gDP9OX3I/AAAAAAAAAak/jVA-IXGaUpw/s288/PlayHarryPotter.png.jpg" alt="Play Video" width="600" height="400">
-              </a>
-              <div class="desc">Play Video</div>
-            </div>
-          </div>
-
-          <div class="responsive">
-            <div class="gallery">
-              <a target="_blank" href="http://lh5.ggpht.com/_bThy5DH7GQI/SqTg2miayYI/AAAAAAAAAJw/yeZ-G0UFPqQ/s288/ViewThumbnail.png.jpg">
-                <img src="http://lh5.ggpht.com/_bThy5DH7GQI/SqTg2miayYI/AAAAAAAAAJw/yeZ-G0UFPqQ/s288/ViewThumbnail.png.jpg" alt="View Photos" width="600" height="400">
-              </a>
-              <div class="desc">View Photos</div>
-            </div>
-          </div>
-
-          <div class="responsive">
-            <div class="gallery">
-              <a target="_blank" href="http://lh5.ggpht.com/_bThy5DH7GQI/SqeCDx16k9I/AAAAAAAAATA/6rP7a7MCMCc/s288/WifiInfo.png.jpg">
-                <img src="http://lh5.ggpht.com/_bThy5DH7GQI/SqeCDx16k9I/AAAAAAAAATA/6rP7a7MCMCc/s288/WifiInfo.png.jpg" alt="WiFi Status" width="600" height="400">
-              </a>
-              <div class="desc">WiFi Status</div>
-            </div>
-            <br>
-            <br>
-          </div>
-          <p>More screenshots can be found <a href="screenshots.html">here</a></p>
           <h2 class="subheading">Tested Platforms</h2>
           <p>The tests are done by the project members and others from android-porting group.</p>
           <ul>
+            <li><a href="https://microtech.store/e-tab-pro/?lang=en">Microtech e-tab Pro (2018)</a></li>
             <li>ASUS Eee PCs/Laptops</li>
             <li>Viewsonic Viewpad 10</li>
             <li>Dell Inspiron Mini Duo</li>
@@ -128,10 +188,10 @@
             <br>
             <h2 class="subheading">Source Code</h2>
             <p>We provide a complete, compilable and workable source tree. Read <a href="source.html">this page</a> for how to use it.<br>
-              <h2>Development (2019/04)</h2>
+              <h2>Development (2019/10)</h2>
               <h3 id="development">What we are working on now</h3>
               <ul>
-                <li>Android 9.0 (Pie) porting (pie-x86 branch)</li>
+                <li>Android 10 (Q release) porting (q-x86 branch)</li>
                 <li>Upgrade kernel to 4.19 or newer</li>
                 <li>OpenGL ES hardware acceleration for intel/radeon/nvidia/amdgpu (pstglia, mauro) and virgl(robh) GPUs.</li>
                 <li>HDMI audio (cwhuang)</li>
@@ -145,13 +205,19 @@
                 <li>Better power management</li>
                 <li>Miracast</li>
               </ul>
-              <br>
-              <br>
-              <div id="f-padding"></div>
-            </section>
-            <section class="bg">
-              <div class="bg"></div>
-              <div class="clearfix"></div>
+              <br><hr><br>
+              <p>
+              <a href="https://top-canadiancasinos.com/android-casino-apps"><img height="40px" src="https://i.ibb.co/4RtF8Kn/android-casinos.png" alt="android-casinos"></a>.</li>
+              </p><p>
+              <a href="https://casinohex.se/online-casinon/mobila-casinon"><img height="60px" src="https://casinohex.se/wp-content/uploads/CasinoHEX_Sverige_300x125.jpg" alt="kasinon för mobiltelefon - titta på CasinoHEX"></a>.</li>
+              </p><p>
+              <a href="https://casinoonline.casino"><img height="30px" src="https://casinoonline.casino/wp-content/uploads/casino-online-casino.png" alt="Casino Online is the best casino guide for Android and other mobile devices"></a>&nbsp;&nbsp;
+              <a href="https://casino-bonus.com"><img height="30px" src="https://casinoimages.blob.core.windows.net/casino/casino-bonus-android-logo.png" alt="Find offers with no deposit at Casino Bonus for Android users"></a>&nbsp;&nbsp;
+              <a href="https://casinoviking.com/new-casino"><img height="30px" src="https://casinoimages.blob.core.windows.net/casino/casinoviking-logo.png" alt="CasinoViking provide Android consumers the best new casinos UK experience"></a>
+              </p><p>
+              <a href="https://zamsino.com/uk/"><img width="75px" src="https://zamsino.com/wp-content/uploads/zamsino-mobile-logo-retina.png" alt="Zamsino offers som great online casinos for Android and other OS systems" title="Zamsino offers som great casino online for android and other OS systems"></a><br>
+              <a href="https://gambla.com/ca/casino/bonus/"><img width="75px" src="https://gambla.com/wp-content/uploads/2019/11/Gambla-Approved-casino-site-badge.png" alt="casino bonuses for Android at Gambla" title=" casino bonuses for Android at Gambla"></a>
+              </p>
             </section>
 
             <div w3-include-html="footer.html"></div>
@@ -170,8 +236,7 @@
             $(this).toggleClass("open");
           });
           </script>
+          <script src="lightbox2/js/lightbox.min.js"></script>
 
-
-        </body>
-
-        </html>
+</body>
+</html>

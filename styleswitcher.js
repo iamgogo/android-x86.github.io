@@ -1,3 +1,7 @@
+function scroller(id) {
+	document.getElementById(id).scrollIntoView();
+}
+
 function setActiveStyleSheet(title) {
   var i, a, main;
   for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
@@ -70,6 +74,9 @@ function includeHTML() {
       }
       xhttp.open("GET", file, true);
       xhttp.send();
+      if (typeof this.activeLink == 'undefined' || !this.activeLink) {
+        this.activeLink = setActiveNavLink(window.location.pathname);
+      }
       /* Exit the function: */
       return;
     }
@@ -100,10 +107,35 @@ function trackScroll() {
   }
 }
 
-function loadScript(url) {
+function setActiveNavLink(url) {
+  var linkContainer = document.querySelectorAll('.navbar-link');
+  let i = linkContainer.length;
+  if (i == 0) return false;
+  while (--i > 0) {
+    var h = linkContainer[i].getAttribute("href");
+    if (h == null || !h.match(".html")) continue;
+    if (url.match(h.split(".")[0])) break;
+  }
+  linkContainer[i].firstChild.classList.add('active');
+  return true;
+}
+
+function loadScript(url, callback) {
   var script = document.createElement("script");
   script.src = url;
   script.async = true;
+  if (callback && typeof callback == "function") {
+    if (script.readyState) { // IE
+      script.onreadystatechange = function() {
+        if (script.readyState == "loaded" || script.readyState == "complete") {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { // Others
+      script.onload = callback;
+    }
+  }
   document.head.appendChild(script);
 }
 
@@ -113,11 +145,70 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-10249025-10');
 
+function refreshTag(id, refresh_time, interval, callback) {
+  var timeout;
+  var tag = document.getElementById(id);
+  if (tag == null) {
+    timeout = 500;
+  } else {
+    timeout = interval * 1000;
+    callback(tag);
+  }
+  if (--refresh_time > 0) {
+    setTimeout(function() {
+      refreshTag(id, refresh_time, interval, callback);
+    }, timeout);
+  }
+}
+
+function showVCMS()
+{
+  loadScript("https://services.brid.tv/player/build/brid.min.js", function() {
+    $bp("Brid_66475714", {"id":"18770","width":"700","height":"393","playlist":{"id":"0","mode":"latest"},"video_type":"0","shuffle":true});
+  });
+}
+
+function showRunative(id) {
+  loadScript("https://cdn.runative-syndicate.com/sdk/v1/n.js", function() {
+    refreshTag(id, 5, 35, function(unused) {
+      NativeAd({
+        element_id: id,
+        spot: "72719163e1c349e3afd19fa5260783ff",
+        type: "label-under",
+        cols: 4,
+        rows: 1,
+        title: "",
+        titlePosition: "left",
+        adsByPosition: "right",
+        breakpoints: [{
+          "cols": 2,
+          "width": 770
+        }],
+        styles: {
+          "headlineLink": {
+            "color": "#333",
+            ":hover": {
+              "color": "#2e81d5"
+            },
+            "font-size": "14px",
+            "font-weight": "bold"
+          },
+          "brandnameLink": {
+            "font-size": "10px"
+          }
+        }
+      });
+    });
+  });
+}
+
 window.onload = function(e) {
   var cookie = readCookie("style");
   var title = cookie ? cookie : getPreferredStyleSheet();
   setActiveStyleSheet(title);
   window.addEventListener('scroll', trackScroll);
+  showVCMS();
+  loadScript("https://powerad.ai/script.js");
 }
 
 window.onunload = function(e) {
